@@ -66,6 +66,27 @@ Below is a list of components available in the library.
 
 Unlike massive library such as [Boost](http://www.boost.org), this is a very small library (all headers together have around *5000 - 6000* lines of codes). Actually, that we don't want to depend on Boost in certain projects is an important reason that motivates this library. We find that this library is already sufficient to satisfy the basic requirement of our other projects.
 
+## How to use CLUE with CMake
+First build and install library
+```
+mkdir build 
+cd build
+cmake --build .
+cmake --build . --target test
+cmake --build . --target install
+```
+
+Now we are able to use clue in client code like this:
+
+```
+cmake_minimum_required(VERSION 3.0)
+project(ClueSample)
+set(CMAKE_CXX_STANDARD 11)
+find_package(CLUE 1.0.0 REQUIRED)
+add_executable(ClueSample main.cpp)
+target_link_libraries(ClueSample CLUE::clue)
+```
+
 ## Documentation
 
 Here is the [Detailed Documentation](http://cppstdx.readthedocs.org/en/latest/).
