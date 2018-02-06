@@ -4,7 +4,7 @@ libdir=${prefix}/lib
 includedir=${prefix}/include
 
 Name: @PROJECT_NAME@
-Description: Clue frameworkk
+Description: Clue frameworkkk
 Version: @VERSION@
 
 Libs: -L${libdir} -lbenchmark
