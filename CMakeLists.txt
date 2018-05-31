@@ -1,16 +1,14 @@
 cmake_minimum_required(VERSION 2.8)
 project(CLUE)
-list(APPEND CMAKE_MODULE_PATH "/home/user/repo")
+
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-include(MyUtils)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "../parrotscmake")
 
 include(cotire)
-include(CodeCoverage)
 include(PrintProperties)
 
 set(CMAKE_VERBOSE_MAKEFILE FALSE)
-set(ENABLE_COTIRE_BUILD TRUE)
+set(ENABLE_COTIRE_BUILD FALSE)
 set(ENABLE_INSTALL TRUE)
 set(COTIRE_DEBUG FALSE)
 set(COTIRE_VERBOSE FALSE)
