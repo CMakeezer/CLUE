@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
 project(CLUE)
-
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "../parrotscmake")
 
@@ -95,11 +94,11 @@ set(UNIT_TESTS
     test_meta
     test_meta_seq
     test_textio
-    test_include_all
+    #test_include_all
     test_shared_mutex
-    test_concurrent_counter
+    #test_concurrent_counter
     test_concurrent_queue
-    test_thread_pool
+    #test_thread_pool
 )
 
 foreach (tname ${UNIT_TESTS})
@@ -129,7 +128,7 @@ set(EXAMPLES
 set(THREAD_EXAMPLES
     ex_cccounter
     ex_ccqueue
-    ex_threadpool
+    #ex_threadpool
 )
 
 foreach (name ${EXAMPLES})
