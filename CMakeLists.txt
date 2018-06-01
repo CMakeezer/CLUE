@@ -43,6 +43,11 @@ endif()
 set(CMAKE_CXX_FLAGS ${NEWCXX_ENABLED_FLAG})
 message(STATUS "CMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}")
 
+if(MSVC)
+    set(CMAKE_CXX_FLAGS_RELEASE "/MT /O2 /Ob2 /DNDEBUG")
+    set(CMAKE_CXX_FLAGS_DEBUG "/MTd /Zi /Ob0 /Od /RTC1")
+endif()
+
 enable_testing()
 
 ###################################
