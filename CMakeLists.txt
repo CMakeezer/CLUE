@@ -14,6 +14,7 @@ set(COTIRE_VERBOSE FALSE)
 set(ENABLE_TEST TRUE)
 set(PRINT_TARGET_PROPERTIES FALSE)
 set(ENABLE_COVERAGE FALSE)
+option(BUILD_TESTS "" TRUE)
 
 #Enable Unit Test coverage
 if (ENABLE_COVERAGE)
@@ -101,12 +102,14 @@ set(UNIT_TESTS
     #test_thread_pool
 )
 
-foreach (tname ${UNIT_TESTS})
-    add_executable(${tname} ${CMAKE_CURRENT_SOURCE_DIR}/tests/${tname}.cpp)
-    list(APPEND UNIT_TESTS_EXECUTABLES ${tname})
-    add_test(NAME ${tname} COMMAND ${tname})
-    target_link_libraries(${tname} PRIVATE Threads::Threads GTest::GTest GTest::Main clue)
-endforeach()
+if(BUILD_TESTS)
+    foreach (tname ${UNIT_TESTS})
+        add_executable(${tname} ${CMAKE_CURRENT_SOURCE_DIR}/tests/${tname}.cpp)
+        list(APPEND UNIT_TESTS_EXECUTABLES ${tname})
+        add_test(NAME ${tname} COMMAND ${tname})
+        target_link_libraries(${tname} PRIVATE Threads::Threads GTest::GTest GTest::Main clue)
+    endforeach()
+endif()
 
 if (ENABLE_COVERAGE)
     #SETUP_TARGET_FOR_COVERAGE(NAME clue_coverage EXECUTABLE test_misc DEPENDENCIES ${UNIT_TESTS_EXECUTABLES}) TODO: EXECUTABLE ahould invoke all depended test executables
