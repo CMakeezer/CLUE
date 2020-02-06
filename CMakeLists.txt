@@ -43,10 +43,14 @@ endif()
 set(CMAKE_CXX_FLAGS ${NEWCXX_ENABLED_FLAG})
 message(STATUS "CMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}")
 
+<<<<<<< HEAD
 if(MSVC)
     set(CMAKE_CXX_FLAGS_RELEASE "/MT /O2 /Ob2 /DNDEBUG")
     set(CMAKE_CXX_FLAGS_DEBUG "/MTd /Zi /Ob0 /Od /RTC1")
 endif()
+=======
+set(CMAKE_EXE_LINKER_FLAGS  "-Wl,--no-as-needed ${CMAKE_EXE_LINKER_FLAGS}")
+>>>>>>> master
 
 enable_testing()
 
